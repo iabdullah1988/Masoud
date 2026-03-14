@@ -33,7 +33,7 @@ with col1:
     selected = st.multiselect(
         "اختر الجهات للتحليل",
         authorities,
-        default=authorities[:3]
+        default=authorities[:3] if authorities else []
     )
     
     st.markdown("---")
@@ -61,6 +61,9 @@ with col2:
         
         st.markdown("### 📚 اللوائح المتاحة:")
         summary = agent.get_regulation_summary()
-        for auth, info in summary.items():
-            with st.expander(f"**{auth}** - {info['title']}"):
-                st.text(info.get('preview', 'لا يوجد معاينة'))
+        if summary:
+            for auth, info in summary.items():
+                with st.expander(f"**{auth}** - {info.get('title', '')}"):
+                    st.text(info.get('preview', 'لا يوجد معاينة'))
+        else:
+            st.warning("لا توجد لوائح محملة حالياً")
