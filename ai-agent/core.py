@@ -4,6 +4,9 @@ Masoud AI Governance Agent
 """
 
 import os
+import sys
+import os
+sys.path.append(os.path.dirname(__file__))
 from typing import List, Dict, Any
 
 class MasoudComplianceAgent:
