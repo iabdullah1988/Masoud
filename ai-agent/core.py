@@ -27,12 +27,10 @@ class MasoudComplianceAgent:
         """
         print("📥 جاري تحميل جميع اللوائح...")
         
-        # التأكد من وجود المجلد
         if not os.path.exists(self.regulations_path):
             print(f"⚠️ مجلد {self.regulations_path} غير موجود")
             return
         
-        # قراءة جميع ملفات .txt في المجلد
         for filename in os.listdir(self.regulations_path):
             if filename.endswith(".txt"):
                 file_path = os.path.join(self.regulations_path, filename)
@@ -60,12 +58,11 @@ class MasoudComplianceAgent:
                     "authority": authority,
                     "title": lines[0] if lines else "",
                     "length": len(content),
-                    "preview": "\n".join(lines[1:5])  # أول 5 أسطر بعد العنوان
+                    "preview": "\n".join(lines[1:5])
                 }
             else:
                 return {"error": f"اللائحة {authority} غير موجودة"}
         
-        # ملخص كل اللوائح
         summary = {}
         for auth, content in self.regulations.items():
             lines = content.strip().split('\n')
@@ -85,16 +82,13 @@ class MasoudComplianceAgent:
         print(f"🔍 تحليل المستند {document_path}...")
         print(f"📋 الجهات المطلوبة: {', '.join(authorities)}")
         
-        # هنا راح نضيف لاحقاً منطق التحليل الفعلي
         gaps = self._find_gaps(document_path, authorities)
-        
         return self._generate_report(gaps, authorities)
     
     def _find_gaps(self, document: str, authorities: List[str]) -> List[Dict]:
         """
         (دالة داخلية) اكتشاف الفجوات في المستند
         """
-        # مؤقتاً نرجع قائمة فارغة
         return []
     
     def _generate_report(self, gaps: List[Dict], authorities: List[str]) -> Dict:
