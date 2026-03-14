@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+env/
+venv/
+.env
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Documents
+*.pdf
+*.docx
+*.txt
+!regulations/*.txt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large files
+*.bin
+*.model
+*.pkl
