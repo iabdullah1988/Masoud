@@ -1,0 +1,24 @@
+# FastAPI for backend
+fastapi==0.115.0
+uvicorn==0.30.1
+
+# LangChain for AI agents
+langchain==0.3.0
+langchain-community==0.3.0
+
+# PDF and document processing
+pypdf2==3.0.1
+python-docx==1.1.2
+
+# Vector database
+chromadb==0.5.0
+
+# Embeddings (Open source)
+sentence-transformers==3.0.1
+
+# Utilities
+python-multipart==0.0.9
+python-dotenv==1.0.1
+
+# Streamlit for web app
+streamlit==1.55.0
